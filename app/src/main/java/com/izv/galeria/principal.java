@@ -92,10 +92,11 @@ public class principal extends Activity {
         c.moveToFirst();
         int i = 0;
         while(!c.isAfterLast()){
+            String[] nombreFoto = nombre.split("/");
             nombre = c.getString(c.getColumnIndex("_data"));
             c.moveToNext();
             File f = new File(nombre);
-            fotos.add(new ImageItem(f,"Image#"+i));
+            fotos.add(new ImageItem(f,nombreFoto[nombreFoto.length-1]+i));
             i++;
         }
         return fotos;
